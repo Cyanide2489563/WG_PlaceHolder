@@ -1,0 +1,10 @@
+name: WG_PlaceHolder
+version: @version@
+main: team.dungeoncraft.wg_placeholder.WG_PlaceHolder
+api-version: 1.13
+load: STARTUP
+depend: [WorldGuard,PlaceholderAPI]
+authors: [Cyanide]
+description: WorldGuard Placeholder
+commands:
+  wgpapi:
