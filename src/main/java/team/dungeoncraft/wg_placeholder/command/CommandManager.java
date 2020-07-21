@@ -87,6 +87,9 @@ public class CommandManager implements CommandExecutor {
         if (args.length < 2) {
             sender.sendMessage("請輸入區域 ID");
             return false;
+        } else if (plugin.isContainer(args[1])) {
+            sender.sendMessage("區域 ID 重複");
+            return false;
         }
         return true;
     }
