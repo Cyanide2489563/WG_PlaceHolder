@@ -16,12 +16,7 @@ public class CommandManager implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (command.getName().equalsIgnoreCase("wgpapi")) {
-            if (!(sender instanceof Player)) {
-                plugin.getLogger().warning("這個指令只能由玩家發送");
-                return false;
-            }
-
+        if (command.getName().equalsIgnoreCase("wgpapi") && checkSender(sender)) {
             if (args.length == 0) {
                 sender.sendMessage("指令錯誤, 輸入 /wgpapi help");
             }
@@ -74,6 +69,18 @@ public class CommandManager implements CommandExecutor {
             }
         }
         return false;
+    }
+
+    public boolean checkSender(CommandSender sender) {
+        if (!(sender instanceof Player)) {
+            plugin.getLogger().warning("這個指令只能由玩家發送");
+            return false;
+        }
+        if (!sender.isOp()) {
+            sender.sendMessage("這個指令只能由管理員使用");
+            return false;
+        }
+        return true;
     }
 
     public boolean checkRegionId(CommandSender sender, String args[]) {

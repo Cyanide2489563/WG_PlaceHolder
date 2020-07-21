@@ -23,7 +23,7 @@ public class CommandTabCompleter implements TabCompleter {
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-        if (sender instanceof Player) {
+        if (sender instanceof Player || !sender.isOp()) {
             if (args.length == 1) {
                 return StringUtil.copyPartialMatches(args[0], COMMANDS, new ArrayList<>());
             }
