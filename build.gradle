@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'team.dungeoncraft'
-version = '1.0.1'
+version = '2.0.0'
 
 sourceCompatibility = '17'
 targetCompatibility = '17'
